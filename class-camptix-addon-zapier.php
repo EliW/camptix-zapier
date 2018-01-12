@@ -48,6 +48,9 @@ class CampTix_Addon_Zapier extends CampTix_Addon {
 	    $output->payment_token = $payment_token;
 	    $output->result_type = $result;
 	    $output->data = $data;
+	    
+	    // Add in some basic info:
+	    $output->event = get_bloginfo( 'name' );
 
         // We need to read in all the information about the attendees.        
         $attendees = get_posts( array(
