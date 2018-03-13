@@ -173,6 +173,7 @@ class CampTix_Addon_Zapier extends CampTix_Addon {
         $output->payment->email = $output->data['transaction_details']['raw']['charge']['receipt_email'] ??
                                   $output->data['transaction_details']['raw']['token']['email'] ??
                                   $output->data['transaction_details']['checkout']['EMAIL'] ?? 
+                                  reset($emails) ?? 
                                   '';
         if (!empty($output->payment->email)) {
             $emails[$output->payment->email] = $output->payment->email;
